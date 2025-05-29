@@ -111,6 +111,36 @@ if __name__ == "__main__":
     main()
 ```
 
+## Logging
+
+You can configure logging for the package using the built-in logger utility:
+
+```python
+from vinted_scraper.utils import configure_logger
+
+# Set up logging (INFO level by default)
+logger = configure_logger(level="DEBUG")
+
+# Use in your code
+logger.info("Logger is configured!")
+```
+
+You can also set the log format, date format, and output stream. All internal logs (e.g., from `VintedWrapper`) will use this logger if configured.
+
+## Documentation
+
+HTML documentation is generated with [pdoc](https://pdoc.dev/):
+
+```bash
+pdoc src/vinted_scraper -o docs
+```
+
+The generated docs can be found in the `docs/` directory. To preview them locally, open `docs/index.html` in your browser.
+
+To publish as GitHub Pages:
+- Set the GitHub Pages source to the `/docs` folder in your repository settings.
+- Or, automate deployment with GitHub Actions.
+
 ## License
 
 This project is licensed under the MIT License - see

@@ -59,3 +59,30 @@ def log_sleep(log: Logger, time: int) -> None:
 
     if log.isEnabledFor(logging.DEBUG):
         log.debug(f"Sleeping for {time} seconds")
+
+
+def configure_logger(
+    name: str = "vinted_scraper",
+    level: int = logging.INFO,
+    fmt: str = "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt: str = "%Y-%m-%d %H:%M:%S",
+    stream: object = None,
+) -> Logger:
+    """
+    Configure and return a logger for the package.
+
+    :param name: Logger name (default: 'vinted_scraper')
+    :param level: Logging level (default: logging.INFO)
+    :param fmt: Log message format
+    :param datefmt: Date format for log messages
+    :param stream: Stream for logging output (default: sys.stderr)
+    :return: Configured logger
+    """
+    logger = logging.getLogger(name)
+    if not logger.handlers:
+        handler = logging.StreamHandler(stream)
+        formatter = logging.Formatter(fmt=fmt, datefmt=datefmt)
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+    logger.setLevel(level)
+    return logger
