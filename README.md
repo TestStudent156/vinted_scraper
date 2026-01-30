@@ -141,6 +141,24 @@ To publish as GitHub Pages:
 - Set the GitHub Pages source to the `/docs` folder in your repository settings.
 - Or, automate deployment with GitHub Actions.
 
+## OCI Deployment
+
+This project includes deployment scripts for Oracle Cloud Infrastructure (OCI) with automatic retry logic. The deployment script automatically retries failed deployments with exponential backoff until success or maximum attempts are reached.
+
+For detailed instructions, see:
+- [OCI Deployment README](oci-deployment/README.md) - Comprehensive documentation
+- [Quick Start Guide](oci-deployment/QUICKSTART.md) - Get started quickly
+
+Quick example:
+```bash
+# Set your OCI stack ID
+export OCI_STACK_ID="ocid1.ormstack.oc1.iad.aaaaaa..."
+
+# Run deployment with automatic retry
+cd oci-deployment
+./deploy-with-retry.sh
+```
+
 ## License
 
 This project is licensed under the MIT License - see

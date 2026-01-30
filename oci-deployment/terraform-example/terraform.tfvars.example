@@ -1,0 +1,30 @@
+# Example Terraform Variables File
+# Copy this file to terraform.tfvars and fill in your values
+
+# OCI Authentication
+tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+user_ocid        = "ocid1.user.oc1..aaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+fingerprint      = "aa:bb:cc:dd:ee:ff:00:11:22:33:44:55:66:77:88:99"
+private_key_path = "~/.oci/key.pem"
+region           = "us-ashburn-1"
+
+# Compartment
+compartment_ocid = "ocid1.compartment.oc1..aaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Resource Configuration
+resource_prefix = "vinted-scraper"
+vcn_cidr_block  = "10.0.0.0/16"
+subnet_cidr_block = "10.0.1.0/24"
+
+# Compute Instance Configuration
+instance_count                       = 1
+instance_shape                       = "VM.Standard.E4.Flex"
+instance_shape_config_ocpus          = 1
+instance_shape_config_memory_in_gbs  = 8
+
+# Instance Image OCID (get from: oci compute image list --compartment-id <compartment-ocid>)
+# Oracle Linux 8 example - replace with actual OCID for your region
+instance_image_ocid = "ocid1.image.oc1.iad.aaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# SSH Key for instance access (paste your public key here)
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... your-email@example.com"
