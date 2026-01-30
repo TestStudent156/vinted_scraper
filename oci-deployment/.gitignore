@@ -1,0 +1,23 @@
+# Environment files
+.env
+
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+.terraform.lock.hcl
+terraform-config.zip
+
+# OCI CLI files
+*.pem
+*.key
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*~
